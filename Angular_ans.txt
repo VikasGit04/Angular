@@ -1,0 +1,65 @@
+1. Two-way data binding
+=> the sharing of data b/w component and view. using ngModel directive we can achieve this. To use ngModel we need to import FormsModule.
+
+2. Dipedency Injection
+=> DI is an object that is used to call methods defined in services.
+
+3. Lazy Loading
+=> It is a concept where modules are downloaded whenever it is activated.
+
+4. Content Projection
+=> It is a pattern in which the contents are inserted into another component. 
+<ng-content> is used as placeholder in the desired component.
+
+5. Observables vs Promises
+=> Both are used to handle asynchronous data. 
+But Observable responses the data in streams and Promises response a single value. 
+Observable are framework which needs to imported from rxjs but Promises are internal to JS.
+
+6. Transfer data b/w components
+=> i. @Input() - Parent to Child - 
+	Syntax:
+	parent.comp.html
+		<child-selector [var_at_Parent_child]="var_at_Parent"></child-selector>
+	child.comp.ts
+		@Input('var_at_Parent_child') var_at_child;
+ii. @Output() - Child to Parent
+	Syntax:
+	child.comp.ts
+		@Output() login : new EventEmitter<string>();
+		onSubmit(){
+		this.login.emit(user);
+		}
+	parent.comp.html
+		<child-selector (login)="onLogin($event)"></child-selector>
+	parent.comp.ts
+		username:string="";
+		onLogin(user:string){
+		this.username=user;
+		}
+iii. ng-content - Parent data can be projected at child component at a particular location.
+iv. @ViewChild()/@ViewChildren() - Child component method can be accessed or manipulated at parent class.
+v. @ContentChild()/@ContentChildren() 
+
+7. ng-content
+=> It is an element which is used in Content projection. This act as a placeholder.
+
+8. ngOnChanges
+=> It is a method which is called when data-bound-property changes and its the first method called after Angular Application is ran.
+
+9. ngOnInIt vs constructor
+=> constructor is not a part of angular, it is class method which is called as soon as the class object is defined.
+ngOnInit is method called to initialize directive or component.
+
+10. Attribute vs Structural Directive.
+Attribute Directive changes the appearance or behavior of the DOM elements but Structural Directive changes the layout by adding or removing the DOM element.
+Attribute Directive - ngStyle, ngClass, ngModel- 
+Structural Directive - ngIf, ngFor & ngSwitch
+
+11. Directive
+=> Directive are classes that add additional behavior to existing DOM elements.
+
+12.@ViewChild()/@ViewChildren() 
+=> It is a decorator that let us access & manipulate the properties and methods of a child component from a container or root component.
+
+Syntax: @ViewChild(selector) variableName: Type

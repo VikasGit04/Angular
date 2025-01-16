@@ -1,0 +1,155 @@
+Angular
+
+1. Types of binding.
+-Data Binding
+-Style Binding
+-Class Binding
+follow-up Questions
+-
+
+2. Services
+follow-up questions
+- other ways to use services other than declaraing in provider of app module.
+- Dependencies Injection
+
+3. Lazy Loading
+
+4. Content Projection (ng-content)
+follow-up Question
+-ng-template and ng-content
+
+5. Subject vs Observables vs Promises
+follow-up Question
+- .then and .next diff
+
+6. Life Cycle Hooks
+ngOnChanges
+ngOnInIt
+ngDoCheck
+ngAfterContentInit
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewChecked
+ngOnDestroy
+
+follow-up questions
+- ngOnChanges
+- ngOnInIt vs constructor
+
+7. Transfer data b/w components
+	- Via Services
+	- via Parent-Child components
+
+10. Directive, custom directive
+ng g directive myCustomDirective
+import {Directive, ElementRef } from '@angular/core';
+
+@Directive({
+	selector: '[apphighlight]'
+})
+
+export class MyCustomDirective {
+	constructor(private el:ElementRef){
+	this.el.nativeElement.style.backgroundColor = 'yellow';
+	}
+}
+
+follow-up questions
+-Attribute vs Structural Directive.
+Atribute Directive - ngStyle, ngClass, ngSwitch
+It changes the apperance or behaviour of the element.
+Structural Directive - ngIf, ngFor
+It changes the DOM layout by adding or removing the DOM elements.
+
+11. Data communication b/w Parent-Child
+- @Input, @Output
+- @ViewChild()/@ViewChildren() 
+- @ContentChild()/@ContentChildren()
+
+12. Pipes ,custom pipe
+follow-up Questions
+- pipe vs function n observable
+- Pure and impure Pipe
+=> Pure pipe works when there is a change in the value or parameter passed, but impure pipe works every time there is a change detected even if the value or parameter passed to it doesn't changes.
+By default all pipes are pure, but to make an impure pipe, we need to have a custom pipe and then in Pipe declation i.e in @Pipe, we should define pure=false
+
+13. viewencapsulation - Components styles can be encapsulated within the components host element so they don't affect the rest of the component.
+=> In component.ts file
+import {ViewEncapsulation} from '@angular/core';
+@Component({
+	selector: '',
+	templateUrl: '',
+	styleUrls: [''],
+	encapsulation: ViewEncapsulation.Emulated
+})
+Emulated - Default behaviour i.e Wherever the styling is defined it will work on that particular component.
+Native or ShadowDOM - No styling is applied to the component by others. 
+None - All the component will have the same styling.
+
+14. Subject, BehaviouralSubject
+
+15. TDF and ReactiveForms
+
+16. formControl, formGroup, formArray.
+
+17. Route guard
+-canActivate
+-canActivateChild
+-canDeactivate
+-canLoad
+
+18. httpInterceptors - Interceptors allow us to intercept incoming or outgoing HTTP requests using the HttpClient.
+Code- Syntax:
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpEvent, HttpResponse, HttpRequest, HttpHandler } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class MyInterceptor implements HttpInterceptor {
+  intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(httpRequest);
+  }
+}
+AppModule.ts
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+Add the below object in provider section in AppModule
+{ provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+
+
+19. RxJS, different rxjs libraries
+RxJS Operators
+1. Creation - from, of, fromEvent
+2. Combination - concat, merge, combineLatest
+
+20. restfull api calls - tokens and all
+
+21. How to handle Browser Back button
+
+22. Web Socket API
+
+23. use of third party API
+
+24. JIT and AOT diff.
+
+25 .SwitchMap
+
+26. ngrx
+
+27. HttpClient calls in angular/core
+set Header
+const headers=new HttpHeader({'Authorization':'Bearer', ''myCustomHeader':'foobar'});
+1. get method
+	HttpClient.get(URL,{headers}.subscribe((response)=>{},
+
+Angular Material
+pagination
+
+
+Accessibility
+ConcatMap and Switch Map
+Pseudo element/classes
+ngrx
+Bootstrap Module
+
+

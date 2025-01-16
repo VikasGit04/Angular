@@ -1,12 +1,12 @@
-import { of, from, first } from 'rxjs';
-import { map, pluck, tap } from 'rxjs/operators';
+import { of, from, first, interval } from 'rxjs';
+import { last, map, pluck, skip, skipLast, tap } from 'rxjs/operators';
 
 // of(1, 2, 3)
 //   .pipe(map((x) => x * x))
 //   .subscribe((v) => console.log(`value: ${v}`));
 
 // of(1, 2, 3)
-//   .pipe(first())
+//   .pipe(skip(1))
 //   .subscribe((v) => console.log(`value: ${v}`));
 
 // const array$ = from([10,20,30]);
@@ -28,3 +28,5 @@ import { map, pluck, tap } from 'rxjs/operators';
 //   map(value => value + 10),
 //   tap(value => console.log(`Value after map: ${value}`))
 // ).subscribe(console.log)
+
+// interval(1000).subscribe(console.log);

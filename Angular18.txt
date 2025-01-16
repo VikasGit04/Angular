@@ -1,0 +1,54 @@
+Angular 18 new features
+1. Zoonless Change Detection : It is still under experimental phase. 
+	Features: 
+	- Faster initial rendering and faster runtime
+	- smaller bundle size, faster page loads
+	- simpler debugging
+	- native async/await 
+
+	bootstrapApplication(App, {
+  providers: [
+    provideExperimentalZonelessChangeDetection()
+  ]
+});
+
+2. Signals is now stable
+3. Deferrable views are stable
+Also known as @defer which is used to reduce the initial bundle size of the application or defer heavy components.
+Requirements:
+- Component should be standalone
+
+4. Built-in control flow is stable
+=> @if
+	feature: referencing the complex condition in the @if block by adding as <variableName> just after the condition
+	ex : @if(user.profile.settings.startDate; as startDate){ 
+		{{startDate}}
+	}
+=> @for: 
+  Features:
+  -it also has track property, 
+  - few variables like ($count, $index, $first, $last, $event, $odd) are available always inside the loop
+  - fallback for @for block with @empty block just after ending the @for block.
+  Ex: 	@for(let item of items; track item.it; let idx = $index, e = $event) {
+			<p> Item #{{idx}}: {{item.name}}</p>
+		} @empty {
+			<p> There are no items.</p>
+		}
+  
+=> @switch: it does not have a fallthrough thus break or return statement is not needed
+
+ex: @switch(userPermission) {
+		@case ('admin') {
+			<app-admin-dashboard/>
+		}
+		@case ('editor') {
+		<app-editor-dashboard/>
+		}
+		@default {
+			<app-viewer-dashboard/>
+		}
+	}
+5. Fallback content for ng-content
+
+6. Unified control state change events
+FormControl, FormGroup and FormArray can now use events can do necessary task on touch state, pristine status and control status.
