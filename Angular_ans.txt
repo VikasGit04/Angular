@@ -1,7 +1,7 @@
 1. Two-way data binding
 => the sharing of data b/w component and view. using ngModel directive we can achieve this. To use ngModel we need to import FormsModule.
 
-2. Dipedency Injection
+2. Dependency Injection
 => DI is an object that is used to call methods defined in services.
 
 3. Lazy Loading
