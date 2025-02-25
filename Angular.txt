@@ -73,7 +73,8 @@ follow-up Questions
 => Pure pipe works when there is a change in the value or parameter passed, but impure pipe works every time there is a change detected even if the value or parameter passed to it doesn't changes.
 By default all pipes are pure, but to make an impure pipe, we need to have a custom pipe and then in Pipe declation i.e in @Pipe, we should define pure=false
 
-13. viewencapsulation - Components styles can be encapsulated within the components host element so they don't affect the rest of the component.
+13. viewencapsulation - Components styles can be encapsulated within the components host element so they don't affect 
+the rest of the component.
 => In component.ts file
 import {ViewEncapsulation} from '@angular/core';
 @Component({

@@ -1,0 +1,20 @@
+Bazel Tool: Powerful build toold developed and massively used by google and it can keep track of the dependencies 
+between different packages and build targets.
+
+Other port in angular serve: ng serve --port=4300
+
+Disable prifix in angular component: ng g c c1 --prefix=false
+
+
+Optimize angular application
+- Lazy Loading
+- tree shaking: removing unused Code
+- AOT Compilation
+- code splitting
+- Change detection strategy
+- service workers
+- caching responses on HTTP request avoiding redundant calls
+- bundle optimization: User webpack bundle analyzer to monitor the size of bundles
+- track performance metrics: use tools like lighthouse, webPageTest or fiddler to analyze bottlenecks
+- SSR: Use angular universal for Server-side rendering to improve initial load time and SEO performance
+

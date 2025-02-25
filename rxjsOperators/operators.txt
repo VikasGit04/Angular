@@ -14,31 +14,33 @@ For example: of(1, 2, 3) creates an observable that will emit 1, 2, and 3, one r
 
 Combining Operators
 These operators are used to combine multiple observables.
-forkJoin: Waits for all observables to complete and then emits an array of their last emitted values.
-
-Copy javascript
+1. forkJoin: Waits for all observables to complete and then emits an array of their last emitted values.
+Syntax:
 forkJoin([observable1, observable2, observable3]).subscribe(results => {
   console.log(results); // Array of results from all observables
 });
-combineLatest: Emits the latest values from multiple observables whenever any of them emit a new value.
 
-Copy javascript
+2. combineLatest: Emits the latest values from multiple observables whenever any of them emit a new value.
+
+Syntax:
 import { combineLatest } from 'rxjs';
 
 combineLatest([observable1, observable2, observable3]).subscribe(values => {
   console.log(values); // Array of latest values from all observables
 });
-merge: Merges multiple observables into one observable by subscribing to them all and emitting values as they arrive.
 
-Copy javascript
+3. merge: Merges multiple observables into one observable by subscribing to them all and emitting values as they arrive.
+
+Syntax:
 import { merge } from 'rxjs';
 
 merge(observable1, observable2, observable3).subscribe(value => {
   console.log(value);
 });
-concat: Subscribes to observables in the provided order and emits all values in sequence.
 
-Copy javascript
+4. concat: Subscribes to observables in the provided order and emits all values in sequence.
+
+Syntax:
 import { concat, of } from 'rxjs';
 
 concat(of('First'), of('Second'), of('Third')).subscribe(value => {
@@ -62,6 +64,7 @@ sourceObservable.pipe(
 ).subscribe(result => {
   console.log(result);
 });
+
 switchMap: Projects each value from the source observable to a new observable and switches to it.
 
 Copy javascript

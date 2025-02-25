@@ -1,0 +1,1 @@
+1. Selector: To specify its a attribute directive the selector is generally in '[]' format

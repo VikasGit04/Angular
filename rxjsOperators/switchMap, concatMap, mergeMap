@@ -1,0 +1,44 @@
+// In RxJS, switchMap, mergeMap, and concatMap are operators used to transform the items emitted by an Observable into 
+// Observables, then flatten these inner Observables into a single Observable. 
+// However, each operator handles these transformations differently:
+
+// mergeMap
+// Behavior: Flattens all inner Observables into one Observable. 
+//           Subscriptions to inner Observables are handled concurrently.
+// Use Case: When you want to subscribe to all inner Observables, and you don't care about the order of completion.
+// Example: Useful for handling multiple HTTP requests concurrently.
+
+
+import { fromEvent } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+import { mergeMap, concatMap, switchMap } from 'rxjs/operators';
+
+fromEvent(document, 'click')
+  .pipe(mergeMap(() => ajax.getJSON('/api/data')))
+  .subscribe(data => console.log(data));
+
+// concatMap
+// Behavior: Flattens all inner Observables into one Observable but subscribes to inner Observables one at a time, 
+// in sequence.
+// Use Case: When you need to maintain the order of subscription and the completion of inner Observables.
+// Example: Useful for queuing HTTP requests or animations, ensuring one completes before starting the next.
+
+
+fromEvent(document, 'click')
+  .pipe(concatMap(() => ajax.getJSON('/api/data')))
+  .subscribe(data => console.log(data));
+  
+// switchMap
+// Behavior: Maps to an Observable and flattens it, but only emits items from the most recently projected inner Observable.
+// Use Case: When you only care about the latest result and need to discard previous Observables when a new one comes along.
+// Example: Useful for type-ahead search where you want to get suggestions for the latest query and discard the previous ones.
+
+
+
+fromEvent(document, 'click')
+  .pipe(switchMap(() => ajax.getJSON('/api/data')))
+  .subscribe(data => console.log(data));
+// Summary
+// mergeMap: Handles concurrent inner Observables without waiting for previous ones to complete.
+// concatMap: Ensures inner Observables are processed sequentially, waiting for each one to complete before starting the next.
+// switchMap: Cancels previous inner Observables if a new Observable is emitted, only emitting values from the most recent inner Observable.

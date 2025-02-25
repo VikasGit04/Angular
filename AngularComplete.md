@@ -152,7 +152,14 @@ Strategy Route guards and dynamic behavior selection
 Angular components have lifecycle hooks to manage initialization, changes, and destruction.
 
 Key Hooks:
-ngOnInit: Executes after component initialization.
+ngOnInit: Runs once after component initialization.
+ngOnChanges: Runs every time when input properties change.
+ngDoCheck():  Runs every time component is mark as check for changes.
+ngAfterContentInit(): Runs once after the component's content has been initialized.
+ngAfterContentChecked(): Runs every time the component content has marked as check for changes.
+ngAfterViewInit(): Runs once the component's view has been initialized.
+ngAfterViewChecked(): Runs every time component's view has been marked as check for changes.
+ngOnDestroy: Runs once just before the component is destroyed. Useful for cleanup tasks like unsubscribing from Observables.
 
 Example:
 
@@ -161,8 +168,7 @@ Copy code
 ngOnInit() {
   console.log('Component Initialized');
 }
-ngOnChanges: Executes when input properties change.
-ngOnDestroy: Executes just before the component is destroyed. Useful for cleanup tasks like unsubscribing from Observables.
+
 
 12. Routing and Route Guards
 

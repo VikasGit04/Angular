@@ -12,7 +12,8 @@ export class EmpFilterPipe implements PipeTransform {
   }
 }
 
-{/* <input type="text" [(ngModel)]="searchValue">
+{
+/* <input type="text" [(ngModel)]="searchValue">
 <button (click)="changeData()"></button>
 
 changeData(): void{
@@ -21,4 +22,5 @@ changeData(): void{
 
 <div *ngFor="let emp of employees | empFilter : searchValue">
     {{emp.name}}
-</div>  */}
+</div>  */
+}

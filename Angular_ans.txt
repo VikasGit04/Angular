@@ -39,7 +39,7 @@ ii. @Output() - Child to Parent
 		}
 iii. ng-content - Parent data can be projected at child component at a particular location.
 iv. @ViewChild()/@ViewChildren() - Child component method can be accessed or manipulated at parent class.
-v. @ContentChild()/@ContentChildren() 
+v. @ContentChild()/@ContentChildren()
 
 7. ng-content
 => It is an element which is used in Content projection. This act as a placeholder.
