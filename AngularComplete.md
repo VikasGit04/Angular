@@ -169,7 +169,6 @@ ngOnInit() {
   console.log('Component Initialized');
 }
 
-
 12. Routing and Route Guards
 
 Routing: Manages navigation paths in the application.
@@ -189,9 +188,6 @@ Route Guards: Used to secure routes based on conditions.
 -resolve: Used to ensure certain data is available before navigating to a route.
 
 Example:
-typescript
-Copy code
-
 canActivate(route: ActivatedRouteSnapshot): boolean {
   return this.authService.isLoggedIn();
 }
@@ -200,9 +196,6 @@ canActivate(route: ActivatedRouteSnapshot): boolean {
 
 Defines nested routes for hierarchical navigation.
 Example:
-
-typescript
-Copy code
 const routes: Routes = [
   { path: 'parent', component: ParentComponent, children: [
     { path: 'child', component: ChildComponent }
@@ -229,9 +222,6 @@ Bundlers like Webpack combine multiple files into a single deployable file, redu
 
 Middleware for processing HTTP requests and responses.
 Example:
-
-typescript
-Copy code
 intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
   const cloned = req.clone({ headers: req.headers.set('Authorization', 'Bearer token') });
   return next.handle(cloned);
@@ -246,9 +236,6 @@ Structural Directives: Alter DOM layout (e.g., *ngIf,*ngFor).
 Attribute Directives: Modify element behavior or appearance (e.g., [ngStyle], [ngClass]).
 
 Example: Custom Directive
-
-typescript
-Copy code
 @Directive({ selector: '[appHighlight]' })
 export class HighlightDirective {
   constructor(el: ElementRef) {
@@ -259,11 +246,7 @@ export class HighlightDirective {
 19. Services and Dependency Injection
 
 Services provide reusable logic across components.
-
 Example:
-
-typescript
-Copy code
 @Injectable({ providedIn: 'root' })
 export class DataService {
   getData() { return [1, 2, 3]; }
@@ -348,8 +331,6 @@ const _todoReducer = createReducer(
 );
 
 Use Store:
-Typescript Copy code
-
 this.store.dispatch(addTodo({ todo: 'Learn NgRx' }));
 
 26. Library vs Framework
@@ -376,12 +357,9 @@ Transform or control data streams.
 
 Examples:
 map: Transforms emitted values.
-typescript
-Copy code
 of(1, 2, 3).pipe(map(x => x * 2)).subscribe(val => console.log(val)); // 2, 4, 6
+
 debounceTime: Waits for a pause in values.
-typescript
-Copy code
 this.search$.pipe(debounceTime(300)).subscribe(value => this.search(value));
 
 30. Signals in Angular (Summary in Few Points)
@@ -443,7 +421,6 @@ Reducers: Functions that define how the state changes in response to actions.
 Effects: Handle side-effects like HTTP requests.
 
 Example:
-Typescript Copy code
 
 @Injectable()
 export class MyEffects {
